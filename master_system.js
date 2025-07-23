@@ -32,129 +32,7 @@ class ConstructionManagementSystem {
             this.updateDashboard();
         } catch (error) {
             console.error('Error loading data:', error);
-            this.generateSampleData();
         }
-    }
-
-    generateSampleData() {
-        // Generate realistic sample data
-        this.data = {
-            projects: this.generateProjects(),
-            tenders: this.generateTenders(),
-            financial: this.generateFinancialData(),
-            suppliers: this.generateSuppliers(),
-            contracts: this.generateContracts()
-        };
-        this.saveData();
-    }
-
-    generateProjects() {
-        const projects = [];
-        const projectTypes = ['مبنى سكني', 'مبنى تجاري', 'بنية تحتية', 'مشروع صناعي'];
-        const statuses = ['جديد', 'قيد التنفيذ', 'مكتمل', 'متأخر'];
-        
-        for (let i = 1; i <= 15; i++) {
-            const startDate = new Date(2024, Math.floor(Math.random() * 12), Math.floor(Math.random() * 28) + 1);
-            const duration = Math.floor(Math.random() * 365) + 90;
-            const endDate = new Date(startDate.getTime() + duration * 24 * 60 * 60 * 1000);
-            
-            projects.push({
-                id: `PRJ-${String(i).padStart(3, '0')}`,
-                name: `مشروع ${projectTypes[Math.floor(Math.random() * projectTypes.length)]} ${i}`,
-                client: `عميل ${i}`,
-                budget: Math.floor(Math.random() * 5000000) + 1000000,
-                spent: Math.floor(Math.random() * 3000000) + 500000,
-                status: statuses[Math.floor(Math.random() * statuses.length)],
-                progress: Math.floor(Math.random() * 100),
-                startDate: startDate.toISOString().split('T')[0],
-                endDate: endDate.toISOString().split('T')[0],
-                location: `الموقع ${i}`,
-                manager: `مدير المشروع ${i}`,
-                priority: Math.floor(Math.random() * 5) + 1
-            });
-        }
-        return projects;
-    }
-
-    generateTenders() {
-        const tenders = [];
-        const types = ['مناقصة عامة', 'مناقصة محدودة', 'عرض سعر مباشر'];
-        const statuses = ['قيد المراجعة', 'مقبول', 'مرفوض', 'قيد التفاوض'];
-        
-        for (let i = 1; i <= 10; i++) {
-            tenders.push({
-                id: `TND-${String(i).padStart(3, '0')}`,
-                title: `مناقصة ${i}`,
-                type: types[Math.floor(Math.random() * types.length)],
-                budget: Math.floor(Math.random() * 2000000) + 500000,
-                submissionDate: new Date(2024, Math.floor(Math.random() * 12), Math.floor(Math.random() * 28) + 1).toISOString().split('T')[0],
-                status: statuses[Math.floor(Math.random() * statuses.length)],
-                probability: Math.floor(Math.random() * 100),
-                client: `جهة مناقصة ${i}`,
-                description: `وصف المناقصة ${i}`
-            });
-        }
-        return tenders;
-    }
-
-    generateFinancialData() {
-        const financial = [];
-        const months = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
-        
-        for (let i = 0; i < 12; i++) {
-            const revenue = Math.floor(Math.random() * 5000000) + 1000000;
-            const expenses = Math.floor(Math.random() * 3000000) + 500000;
-            
-            financial.push({
-                month: months[i],
-                revenue: revenue,
-                expenses: expenses,
-                profit: revenue - expenses,
-                vat: revenue * 0.05,
-                incomeTax: (revenue - expenses) * 0.09,
-                cashFlow: Math.floor(Math.random() * 1000000) + 200000
-            });
-        }
-        return financial;
-    }
-
-    generateSuppliers() {
-        const suppliers = [];
-        const categories = ['مواد بناء', 'معدات', 'خدمات', 'عمالة'];
-        
-        for (let i = 1; i <= 8; i++) {
-            suppliers.push({
-                id: `SUP-${String(i).padStart(3, '0')}`,
-                name: `مورد ${i}`,
-                category: categories[Math.floor(Math.random() * categories.length)],
-                contact: `050-${String(Math.floor(Math.random() * 10000000)).padStart(7, '0')}`,
-                email: `supplier${i}@email.com`,
-                rating: Math.floor(Math.random() * 5) + 1,
-                totalContracts: Math.floor(Math.random() * 50) + 5,
-                totalValue: Math.floor(Math.random() * 5000000) + 1000000
-            });
-        }
-        return suppliers;
-    }
-
-    generateContracts() {
-        const contracts = [];
-        const types = ['عقد مقاولات', 'عقد توريد', 'عقد خدمات'];
-        const statuses = ['فعال', 'مكتمل', 'ملغي', 'قيد المراجعة'];
-        
-        for (let i = 1; i <= 12; i++) {
-            contracts.push({
-                id: `CNT-${String(i).padStart(3, '0')}`,
-                type: types[Math.floor(Math.random() * types.length)],
-                value: Math.floor(Math.random() * 2000000) + 100000,
-                startDate: new Date(2024, Math.floor(Math.random() * 12), 1).toISOString().split('T')[0],
-                endDate: new Date(2024, Math.floor(Math.random() * 12) + 1, 28).toISOString().split('T')[0],
-                status: statuses[Math.floor(Math.random() * statuses.length)],
-                party: `الطرف ${i}`,
-                terms: `شروط العقد ${i}`
-            });
-        }
-        return contracts;
     }
 
     // Advanced Chart System
@@ -498,16 +376,6 @@ class ConstructionManagementSystem {
         }
     }
 
-    saveData() {
-        localStorage.setItem('constructionData', JSON.stringify(this.data));
-    }
-
-    loadFromStorage() {
-        const saved = localStorage.getItem('constructionData');
-        if (saved) {
-            this.data = JSON.parse(saved);
-        }
-    }
 }
 
 // AI Chat Function
