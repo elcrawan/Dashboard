@@ -1,0 +1,129 @@
+{
+    "projects": [
+        {
+            "id": "PRJ-001",
+            "name": "مشروع مبنى سكني 1",
+            "client": "عميل 1",
+            "budget": 3500000,
+            "spent": 1200000,
+            "status": "قيد التنفيذ",
+            "progress": 45,
+            "startDate": "2024-03-15",
+            "endDate": "2025-03-14",
+            "location": "الموقع 1",
+            "manager": "مدير المشروع 1",
+            "priority": 3
+        },
+        {
+            "id": "PRJ-002",
+            "name": "مشروع بنية تحتية 2",
+            "client": "عميل 2",
+            "budget": 5000000,
+            "spent": 2500000,
+            "status": "مكتمل",
+            "progress": 100,
+            "startDate": "2023-01-20",
+            "endDate": "2024-01-19",
+            "location": "الموقع 2",
+            "manager": "مدير المشروع 2",
+            "priority": 5
+        }
+    ],
+    "tenders": [
+        {
+            "id": "TND-001",
+            "title": "مناقصة 1",
+            "type": "مناقصة عامة",
+            "budget": 1500000,
+            "submissionDate": "2024-08-01",
+            "status": "قيد المراجعة",
+            "probability": 60,
+            "client": "جهة مناقصة 1",
+            "description": "وصف المناقصة 1"
+        },
+        {
+            "id": "TND-002",
+            "title": "مناقصة 2",
+            "type": "عرض سعر مباشر",
+            "budget": 750000,
+            "submissionDate": "2024-07-25",
+            "status": "مقبول",
+            "probability": 95,
+            "client": "جهة مناقصة 2",
+            "description": "وصف المناقصة 2"
+        }
+    ],
+    "financial": [
+        {
+            "month": "يناير",
+            "revenue": 1200000,
+            "expenses": 800000,
+            "profit": 400000,
+            "vat": 60000,
+            "incomeTax": 36000,
+            "cashFlow": 300000
+        },
+        {
+            "month": "فبراير",
+            "revenue": 1500000,
+            "expenses": 900000,
+            "profit": 600000,
+            "vat": 75000,
+            "incomeTax": 54000,
+            "cashFlow": 500000
+        },
+        {
+            "month": "مارس",
+            "revenue": 1800000,
+            "expenses": 1000000,
+            "profit": 800000,
+            "vat": 90000,
+            "incomeTax": 72000,
+            "cashFlow": 700000
+        }
+    ],
+    "suppliers": [
+        {
+            "id": "SUP-001",
+            "name": "مورد 1",
+            "category": "مواد بناء",
+            "contact": "050-1234567",
+            "email": "supplier1@email.com",
+            "rating": 4,
+            "totalContracts": 25,
+            "totalValue": 2500000
+        },
+        {
+            "id": "SUP-002",
+            "name": "مورد 2",
+            "category": "معدات",
+            "contact": "050-7654321",
+            "email": "supplier2@email.com",
+            "rating": 5,
+            "totalContracts": 15,
+            "totalValue": 3500000
+        }
+    ],
+    "contracts": [
+        {
+            "id": "CNT-001",
+            "type": "عقد مقاولات",
+            "value": 1200000,
+            "startDate": "2024-02-01",
+            "endDate": "2025-01-31",
+            "status": "فعال",
+            "party": "الطرف 1",
+            "terms": "شروط العقد 1"
+        },
+        {
+            "id": "CNT-002",
+            "type": "عقد توريد",
+            "value": 500000,
+            "startDate": "2024-05-15",
+            "endDate": "2024-11-15",
+            "status": "مكتمل",
+            "party": "الطرف 2",
+            "terms": "شروط العقد 2"
+        }
+    ]
+}
